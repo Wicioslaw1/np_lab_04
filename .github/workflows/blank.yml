@@ -1,0 +1,23 @@
+name: check_python_version
+
+jobs:
+  check-python-version:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Wersja
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.11
+
+    - name: Pip
+      run: |
+        python -m pip install --upgrade pip
+
+    - name: Pokaz wersje
+      run: python --version
+
+on:
+  push:
+    branches:
+      - main
